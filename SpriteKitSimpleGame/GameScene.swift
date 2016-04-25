@@ -4,7 +4,7 @@
 //
 //  Created by mojado on 18.04.16.
 //  Copyright (c) 2016 mojado. All rights reserved.
-//
+
 
 import SpriteKit
 
@@ -47,9 +47,6 @@ extension CGPoint {
         return self / length()
     }
 }
-
-
-
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // 1
@@ -109,9 +106,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let actionMove = SKAction.moveTo(CGPoint(x: -monster.size.width/2, y: actualY), duration: NSTimeInterval(actualDuration))
         let actionMoveDone = SKAction.removeFromParent()
         let loseAction = SKAction.runBlock() {
-            let reveal = SKTransition.flipHorizontalWithDuration(0.5)
-            let gameOverScene = GameOverScene(size: self.size, won: false)
-            self.view?.presentScene(gameOverScene, transition: reveal)
+        let reveal = SKTransition.flipHorizontalWithDuration(0.5)
+        let gameOverScene = GameOverScene(size: self.size, won: false)
+        self.view?.presentScene(gameOverScene, transition: reveal)
         }
         monster.runAction(SKAction.sequence([actionMove, loseAction, actionMoveDone]))
         
